@@ -1,0 +1,309 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: rgb(242, 253, 241);
+}
+
+/* Full-width textarea */
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+    background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+    opacity: 1;
+}
+
+.response {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 2px 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+    max-width: 80%;
+    margin-right: -15px;
+    word-wrap: break-word;
+    float: left;
+    clear: both;
+    font-size: 9px;
+}
+
+.message {
+    background-color: #f1f1f1;
+    padding: 10px;
+    margin: 2px 5px;
+    border-radius: 5px;
+    margin-left: 20px;
+    max-width: 80%;
+    word-wrap: break-word;
+    float: right;
+    clear: both;
+    font-size: 9px;
+
+}
+
+.chat-messages {
+    background-color: #dcd9d9;
+
+    max-height: 200px;
+    /* set the maximum height */
+    overflow-y: scroll;
+    /* add a scrollbar if the content exceeds the maximum height */
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Buttons */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.containt {
+    display: flex;
+    align-items: center;
+    /* align the button and textarea height */
+}
+
+.form-container .btn {
+    background-color: #5799dc;
+    color: white;
+    border: none;
+    cursor: pointer;
+    width: 15%;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    float: left;
+    margin-left: 5px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* center the icon within the button */
+}
+
+.form-container textarea {
+    width: 90%;
+    /* decrease the width of the textarea */
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    height: 40px;
+    float: left;
+    /* float the textarea to the left */
+}
+
+.form-container .btn i {
+    font-size: 1.5em;
+}
+
+.close {
+    background-color: rgb(188, 65, 65);
+    color: #fff;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 0px 7px;
+    /* reduce padding */
+    height: 20px;
+    /* reduce height */
+    line-height: 20px;
+    /* align text vertically */
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 9;
+    border: none;
+    text-align: center;
+    /* center text */
+}
+
+.close:hover {
+    background-color: darkred;
+}
+
+.chat-header {
+    color: #04AA6D;
+    font-size: 1.5em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.cs-name {
+    color: #999;
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: -15px;
+    margin-bottom: 10px;
+}
+
+.footer {
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: -15px;
+    color: #999;
+}
+
+#select-cs {
+    background-color: #04AA6D;
+    color: #fff;
+    font-size: 1em;
+    padding: 10px 15px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    text-align: center;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    z-index: 9;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#select-cs:hover {
+    background-color: #009952;
+}
+
+
+.select-cs-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+/* Add styles to the form container */
+.cs-container {
+    width: 300px;
+    padding: 10px;
+    background-color: white;
+    text-align: center;
+}
+
+/* Add a style for the submit/select button */
+.cs-container .btn-cs {
+    background-color: #04AA6D;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+/* Add a red background color to the cancel button */
+.cs-container .cancel {
+    background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.cs-container .btn-cs:hover {
+    background-color: #009952;
+    transform: scale(1.1);
+}
+
+/* Add a style for the select element */
+.cs-container #cs-select {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Add a style for the label */
+.cs-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Add a style for the input */
+.cs-container input {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
